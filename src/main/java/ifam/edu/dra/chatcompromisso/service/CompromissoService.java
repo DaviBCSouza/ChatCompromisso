@@ -30,8 +30,10 @@ public class CompromissoService {
 		return null;
 	}
 
-	public void excluirCompromisso() {
-
+	public void excluirCompromisso(Long id) {
+		Optional<Compromisso> optionalCompromisso = compromissoRepository.findById(id);
+		if(optionalCompromisso.isPresent())
+			compromissoRepository.deleteById(id);
 	}
 
 	public Compromisso aceitarCompromisso() {
